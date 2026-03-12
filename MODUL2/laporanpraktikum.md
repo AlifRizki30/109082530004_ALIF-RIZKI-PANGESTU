@@ -116,7 +116,9 @@ func main() {
 
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL3.png)
-[penjelasan]
+codingan tersebut digunakan untuk menghitung ongkos kirim parsel berdasarkan berat dalam gram yang dimasukkan oleh pengguna. Berat parsel dikonversi menjadi kilogram (Kg) dan sisa gram, kemudian biaya per kilogram dihitung Rp10.000 per Kg. Selanjutnya program menggunakan **percabangan if-else** untuk menentukan biaya dari sisa gram, yaitu jika berat lebih dari 10 Kg maka sisa gram tidak dikenakan biaya, jika sisa ≥ 500 gram dikenakan Rp5 per gram, dan jika sisa < 500 gram** dikenakan Rp15 per gram. Setelah itu program menjumlahkan semua biaya dan menampilkan detail berat, rincian ongkos, serta total ongkos pengiriman.
+
+
 
 
 
