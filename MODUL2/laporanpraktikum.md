@@ -38,8 +38,7 @@ func main() {
 
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL1.png)
-[codingan tersebut tersebut berfungsi untuk menerima tiga buah input string dari pengguna yang disimpan dalam variabel satu, dua, dan tiga menggunakan fmt.Scanln. Setelah itu program menampilkan urutan nilai awal dari ketiga variabel tersebut menggunakan fmt.Println. Selanjutnya dilakukan proses pertukaran atau pergeseran nilai dengan bantuan variabel sementara temp, di mana nilai satu dipindahkan ke temp, nilai dua dipindahkan ke satu, nilai tiga dipindahkan ke dua, dan nilai yang ada di temp dipindahkan ke tiga. Setelah proses pertukaran selesai, program menampilkan kembali hasil akhir dari ketiga variabel sehingga urutan nilainya berubah dari urutan awal.
-]
+codingan tersebut tersebut berfungsi untuk menerima tiga buah input string dari pengguna yang disimpan dalam variabel satu, dua, dan tiga menggunakan fmt.Scanln. Setelah itu program menampilkan urutan nilai awal dari ketiga variabel tersebut menggunakan fmt.Println. Selanjutnya dilakukan proses pertukaran atau pergeseran nilai dengan bantuan variabel sementara temp, di mana nilai satu dipindahkan ke temp, nilai dua dipindahkan ke satu, nilai tiga dipindahkan ke dua, dan nilai yang ada di temp dipindahkan ke tiga. Setelah proses pertukaran selesai, program menampilkan kembali hasil akhir dari ketiga variabel sehingga urutan nilainya berubah dari urutan awal.
 
 ## Unguided 
 
@@ -73,7 +72,8 @@ func main() {
 
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL2.png)
-[penjelasan]
+codingan tersebut digunakan untuk mengecek apakah urutan warna yang dimasukkan pengguna sudah sesuai dengan aturan yang ditentukan, var merah, kuning, hijau, ungu. Pada awal program dideklarasikan empat var string w1, w2, w3, w4 untuk menyimpan input warna serta satu variabel boolean berhasil yang bernilai awal true. Program kemudian menampilkan pesan kepada pengguna untuk memasukkan urutan warna dan melakukan perulangan for sebanyak lima kali sebagai percobaan input. Pada setiap percobaan, pengguna diminta memasukkan empat warna yang kemudian diperiksa menggunakan kondisi if. Jika salah satu warna tidak sesuai dengan urutan yang ditentukan (merah, kuning, hijau, ungu), maka variabel berhasil akan berubah menjadi false. Setelah seluruh percobaan selesai, program akan menampilkan hasil akhir berupa nilai berhasil yang menunjukkan apakah semua input yang dimasukkan sesuai dengan aturan atau tidak.
+
 
 ## Unguided 
 
@@ -117,6 +117,7 @@ func main() {
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL3.png)
 [penjelasan]
+
 
 
 
