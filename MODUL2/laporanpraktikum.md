@@ -8,11 +8,30 @@
 
 ```go
 package main
-
 import "fmt"
-
 func main() {
-	fmt.Println("Hello World!")
+	var (
+		satu, dua, tiga string
+		temp string
+	)
+
+	fmt.Print("Masukan input string: ")
+	fmt.Scanln(&satu)
+
+	fmt.Print("Masukan input string: ")
+	fmt.Scanln(&dua)
+
+	fmt.Print("Masukan input string: ")
+	fmt.Scanln(&tiga)
+
+	fmt.Println("Output awal = " + satu + " " + dua + " " + tiga)
+
+	temp = satu
+	satu = dua
+	dua = tiga
+	tiga = temp
+
+	fmt.Println("Output akhir = " + satu + " " + dua + " " + tiga)
 }
 ```
 ### Output Unguided :
@@ -24,15 +43,29 @@ func main() {
 ## Unguided 
 
 ### 2. [Soal]
-#### soal1.go
+#### soal2.go
 
 ```go
 package main
 
 import "fmt"
-
 func main() {
-	fmt.Println("Hello World!")
+	var w1, w2, w3, w4 string
+	var berhasil bool
+	fmt.Println("urutkan warna sesuai rules")
+	berhasil = true
+	i:=1
+	for  i <= 5 {
+		fmt.Print("Percobaan ", i, ": ")
+		fmt.Scan(&w1, &w2, &w3, &w4)
+
+		if w1 != "merah" || w2 != "kuning" || w3 != "hijau" || w4 != "ungu" {
+			berhasil = false
+		}
+		i++
+	}
+
+	fmt.Println("BERHASIL:", berhasil)
 }
 ```
 ### Output Unguided :
@@ -43,16 +76,39 @@ func main() {
 
 ## Unguided 
 
-### 1. [Soal]
-#### soal1.go
+### 3. [Soal]
+#### soal3.go
 
 ```go
 package main
 
 import "fmt"
-
 func main() {
-	fmt.Println("Hello World!")
+	var gram int
+	var Kg, Sisa int
+	var ongkosKg, ongkosSisa, total int
+
+	fmt.Print("Berat parsel (gram): ")
+	fmt.Scan(&gram)
+
+	Kg = gram / 1000
+	Sisa = gram % 1000
+	ongkosKg = Kg * 10000
+
+	if Kg > 10 {
+		ongkosSisa = 0
+	} else {
+		if Sisa >= 500 {
+			ongkosSisa = Sisa * 5
+		} else {
+			ongkosSisa = Sisa * 15
+		}
+	}
+	total = ongkosKg + ongkosSisa
+
+	fmt.Println("Detail berat:", Kg, "Kg+", Sisa, "gr")
+	fmt.Println("Detail ongkos: Rp. ", ongkosKg, "+ Rp. ", ongkosSisa)
+	fmt.Println("Total ongkos Rp.", total)
 }
 ```
 ### Output Unguided :
@@ -60,5 +116,6 @@ func main() {
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL1.png)
 [penjelasan]
+
 
 
