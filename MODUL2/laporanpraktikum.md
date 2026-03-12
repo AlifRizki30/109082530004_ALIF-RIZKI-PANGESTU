@@ -38,7 +38,8 @@ func main() {
 
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL1.png)
-[penjelasan]
+[codingan tersebut tersebut berfungsi untuk menerima tiga buah input string dari pengguna yang disimpan dalam variabel satu, dua, dan tiga menggunakan fmt.Scanln. Setelah itu program menampilkan urutan nilai awal dari ketiga variabel tersebut menggunakan fmt.Println. Selanjutnya dilakukan proses pertukaran atau pergeseran nilai dengan bantuan variabel sementara temp, di mana nilai satu dipindahkan ke temp, nilai dua dipindahkan ke satu, nilai tiga dipindahkan ke dua, dan nilai yang ada di temp dipindahkan ke tiga. Setelah proses pertukaran selesai, program menampilkan kembali hasil akhir dari ketiga variabel sehingga urutan nilainya berubah dari urutan awal.
+]
 
 ## Unguided 
 
@@ -116,6 +117,7 @@ func main() {
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL3.png)
 [penjelasan]
+
 
 
 
