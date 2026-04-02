@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 1 - ... </h1>
+# <h1 align="center">sLaporan Praktikum Modul 4 - ... </h1>
 <p align="center">[ALIF RIZKI PANGESTU] - [109082530004]</p>
 
 ## Unguided 
@@ -8,37 +8,48 @@
 
 ```go
 package main
-import "fmt"
+import (
+	"fmt"
+)
+
+func factorial(n int) int {
+	result := 1
+	for i := 1; i <= n; i++ {
+		result *= i
+	}
+	return result
+}
+
+func permutation(n, r int) int {
+	return factorial(n) / factorial(n-r)
+}
+
+func combination(n, r int) int {
+	return factorial(n) / (factorial(r) * factorial(n-r))
+}
+
 func main() {
-	var (
-		satu, dua, tiga string
-		temp string
-	)
+	var a, b, c, d int
+	fmt.Scan(&a, &b, &c, &d)
+	if a < c || b < d {
+		fmt.Println("Input tidak valid (harus a ≥ c dan b ≥ d)")
+		return
+	}
+	p1 := permutation(a, c)
+	c1 := combination(a, c)
 
-	fmt.Print("Masukan input string: ")
-	fmt.Scanln(&satu)
+	p2 := permutation(b, d)
+	c2 := combination(b, d)
 
-	fmt.Print("Masukan input string: ")
-	fmt.Scanln(&dua)
-
-	fmt.Print("Masukan input string: ")
-	fmt.Scanln(&tiga)
-
-	fmt.Println("Output awal = " + satu + " " + dua + " " + tiga)
-
-	temp = satu
-	satu = dua
-	dua = tiga
-	tiga = temp
-
-	fmt.Println("Output akhir = " + satu + " " + dua + " " + tiga)
+	fmt.Println(p1, c1)
+	fmt.Println(p2, c2)
 }
 ```
 ### Output Unguided :
 
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%204/OUTPUT/soal%201.png)
-codingan tersebut tersebut berfungsi untuk menerima tiga buah input string dari pengguna yang disimpan dalam variabel satu, dua, dan tiga menggunakan fmt.Scanln. Setelah itu program menampilkan urutan nilai awal dari ketiga variabel tersebut menggunakan fmt.Println. Selanjutnya dilakukan proses pertukaran atau pergeseran nilai dengan bantuan variabel sementara temp, di mana nilai satu dipindahkan ke temp, nilai dua dipindahkan ke satu, nilai tiga dipindahkan ke dua, dan nilai yang ada di temp dipindahkan ke tiga. Setelah proses pertukaran selesai, program menampilkan kembali hasil akhir dari ketiga variabel sehingga urutan nilainya berubah dari urutan awal.
+Kode Go tersebut digunakan untuk menghitung permutasi dan kombinasi dari dua pasang bilangan input. Program mendefinisikan fungsi faktorial(n int) untuk menghitung nilai faktorial (meskipun bagian perhitungannya tidak terlihat lengkap di potongan ini), lalu menggunakan fungsi permutation(n, r) dengan rumus ( n! / (n-r)! ) dan combination(n, r) dengan rumus ( n! / (r!(n-r)!) ). Pada fungsi main, program membaca empat input bilangan (a, b, c, d), kemudian melakukan validasi agar nilai a ≥ c dan b ≥ d; jika tidak, program menampilkan pesan error. Jika valid, program menghitung nilai permutasi dan kombinasi untuk pasangan `(a, c) dan (b, d), lalu menampilkan hasilnya ke terminal.
 
 ## Unguided 
 
@@ -47,32 +58,53 @@ codingan tersebut tersebut berfungsi untuk menerima tiga buah input string dari 
 
 ```go
 package main
+import (
+	"fmt"
+)
 
-import "fmt"
-func main() {
-	var w1, w2, w3, w4 string
-	var berhasil bool
-	fmt.Println("urutkan warna sesuai rules")
-	berhasil = true
-	i:=1
-	for  i <= 5 {
-		fmt.Print("Percobaan ", i, ": ")
-		fmt.Scan(&w1, &w2, &w3, &w4)
-
-		if w1 != "merah" || w2 != "kuning" || w3 != "hijau" || w4 != "ungu" {
-			berhasil = false
+func hitungSkor(waktu []int, soal *int, skor *int) {
+	*soal = 0
+	*skor = 0
+	for _, w := range waktu {
+		if w <= 301 {
+			*soal++
+			*skor += w
 		}
-		i++
 	}
+}
+func main() {
+	var nama string
+	var pemenang string
+	maxSoal := -1
+	minWaktu := 1<<31 - 1
 
-	fmt.Println("BERHASIL:", berhasil)
+	for {
+		fmt.Scan(&nama)
+
+		if nama == "Selesai" {
+			break
+		}
+		waktu := make([]int, 8)
+		for i := 0; i < 8; i++ {
+			fmt.Scan(&waktu[i])
+		}
+
+		var soal, skor int
+		hitungSkor(waktu, &soal, &skor)
+		if soal > maxSoal || (soal == maxSoal && skor < minWaktu) {
+			maxSoal = soal
+			minWaktu = skor
+			pemenang = nama
+		}
+	}
+	fmt.Println(pemenang, maxSoal, minWaktu)
 }
 ```
 ### Output Unguided :
 
 ##### Output 
-![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL2.png)
-codingan tersebut digunakan untuk mengecek apakah urutan warna yang dimasukkan pengguna sudah sesuai dengan aturan yang ditentukan, var merah, kuning, hijau, ungu. Pada awal program dideklarasikan empat var string w1, w2, w3, w4 untuk menyimpan input warna serta satu variabel boolean berhasil yang bernilai awal true. Program kemudian menampilkan pesan kepada pengguna untuk memasukkan urutan warna dan melakukan perulangan for sebanyak lima kali sebagai percobaan input. Pada setiap percobaan, pengguna diminta memasukkan empat warna yang kemudian diperiksa menggunakan kondisi if. Jika salah satu warna tidak sesuai dengan urutan yang ditentukan (merah, kuning, hijau, ungu), maka variabel berhasil akan berubah menjadi false. Setelah seluruh percobaan selesai, program akan menampilkan hasil akhir berupa nilai berhasil yang menunjukkan apakah semua input yang dimasukkan sesuai dengan aturan atau tidak.
+![Screenshot Output Unguided 1_1]https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%204/OUTPUT/soal%202.png
+Program Go tersebut digunakan untuk menentukan pemenang berdasarkan jumlah soal yang diselesaikan dan total waktu tercepat. Di dalam main, program membaca input berupa nama peserta secara berulang hingga pengguna mengetik Selesai. Untuk setiap peserta, program mengambil 8 data waktu pengerjaan soal yang disimpan dalam slice waktu, kemudian memanggil fungsi hitungSkor untuk menghitung jumlah soal yang berhasil diselesaikan (soal) dan total waktu (skor). Program menyimpan nilai maksimum soal (maxSoal) dan waktu minimum (minWaktu) sebagai acuan, lalu membandingkan setiap peserta: jika jumlah soal lebih banyak atau sama tetapi dengan waktu lebih cepat, maka peserta tersebut menjadi pemenang. Setelah semua input selesai, program menampilkan nama pemenang beserta jumlah soal dan total waktunya.
 
 
 ## Unguided 
@@ -83,40 +115,37 @@ codingan tersebut digunakan untuk mengecek apakah urutan warna yang dimasukkan p
 ```go
 package main
 
-import "fmt"
-func main() {
-	var gram int
-	var Kg, Sisa int
-	var ongkosKg, ongkosSisa, total int
+import (
+	"fmt"
+)
 
-	fmt.Print("Berat parsel (gram): ")
-	fmt.Scan(&gram)
+func cetakDeret(n int) {
+	for {
+		fmt.Print(n, " ")
 
-	Kg = gram / 1000
-	Sisa = gram % 1000
-	ongkosKg = Kg * 10000
+		if n == 1 {
+			break
+		}
 
-	if Kg > 10 {
-		ongkosSisa = 0
-	} else {
-		if Sisa >= 500 {
-			ongkosSisa = Sisa * 5
+		if n%2 == 0 {
+			n = n / 2
 		} else {
-			ongkosSisa = Sisa * 15
+			n = 3*n + 1
 		}
 	}
-	total = ongkosKg + ongkosSisa
-
-	fmt.Println("Detail berat:", Kg, "Kg+", Sisa, "gr")
-	fmt.Println("Detail ongkos: Rp. ", ongkosKg, "+ Rp. ", ongkosSisa)
-	fmt.Println("Total ongkos Rp.", total)
+}
+func main() {
+	var n int
+	fmt.Scan(&n)
+	cetakDeret(n)
 }
 ```
 ### Output Unguided :
 
 ##### Output 
-![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL2/OUTPUT/OUTPUTSOAL3.png)
-codingan tersebut digunakan untuk menghitung ongkos kirim parsel berdasarkan berat dalam gram yang dimasukkan oleh pengguna. Berat parsel dikonversi menjadi kilogram (Kg) dan sisa gram, kemudian biaya per kilogram dihitung Rp10.000 per Kg. Selanjutnya program menggunakan **percabangan if-else** untuk menentukan biaya dari sisa gram, yaitu jika berat lebih dari 10 Kg maka sisa gram tidak dikenakan biaya, jika sisa ≥ 500 gram dikenakan Rp5 per gram, dan jika sisa < 500 gram** dikenakan Rp15 per gram. Setelah itu program menjumlahkan semua biaya dan menampilkan detail berat, rincian ongkos, serta total ongkos pengiriman.
+![Screenshot Output Unguided 1_1]https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%204/OUTPUT/soal%203.png
+Program Go tersebut digunakan untuk mencetak deret bilangan berdasarkan aturan Collatz (3n + 1). Fungsi cetakDeret(n int) akan menampilkan nilai n secara berulang menggunakan loop tak hingga (for), lalu berhenti ketika nilai n mencapai 1. Di setiap iterasi, program mengecek apakah n genap atau ganjil: jika genap maka n dibagi 2 (n = n / 2), sedangkan jika ganjil maka dihitung dengan rumus n = 3*n + 1. Fungsi main digunakan untuk membaca input bilangan dari pengguna, kemudian memanggil fungsi cetakDeret untuk menampilkan seluruh urutan angka hingga berakhir di 1, seperti yang terlihat pada output deret yang terus berubah sesuai aturan tersebut.
+
 
 
 
