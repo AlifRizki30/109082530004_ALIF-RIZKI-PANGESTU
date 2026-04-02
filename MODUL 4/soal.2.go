@@ -7,7 +7,6 @@ import (
 func hitungSkor(waktu []int, soal *int, skor *int) {
 	*soal = 0
 	*skor = 0
-
 	for _, w := range waktu {
 		if w <= 301 {
 			*soal++
@@ -15,7 +14,6 @@ func hitungSkor(waktu []int, soal *int, skor *int) {
 		}
 	}
 }
-
 func main() {
 	var nama string
 	var pemenang string
