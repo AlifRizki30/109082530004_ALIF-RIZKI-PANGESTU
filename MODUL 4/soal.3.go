@@ -19,7 +19,6 @@ func cetakDeret(n int) {
 		}
 	}
 }
-
 func main() {
 	var n int
 	fmt.Scan(&n)
