@@ -1,4 +1,4 @@
-# <h1 align="center">sLaporan Praktikum Modul 4 - ... </h1>
+# <h1 align="center">sLaporan Praktikum Modul 3 - ... </h1>
 <p align="center">[ALIF RIZKI PANGESTU] - [109082530004]</p>
 
 ## Unguided 
@@ -8,49 +8,34 @@
 
 ```go
 package main
-import (
-	"fmt"
-)
 
-func factorial(n int) int {
-	result := 1
+import "fmt"
+
+func faktorial(n int) int {
+	hasil := 1
 	for i := 1; i <= n; i++ {
-		result *= i
+		hasil *= i
 	}
-	return result
+	return hasil
 }
-
-func permutation(n, r int) int {
-	return factorial(n) / factorial(n-r)
-}
-
-func combination(n, r int) int {
-	return factorial(n) / (factorial(r) * factorial(n-r))
-}
-
 func main() {
 	var a, b, c, d int
 	fmt.Scan(&a, &b, &c, &d)
-	if a < c || b < d {
-		fmt.Println("Input tidak valid (harus a ≥ c dan b ≥ d)")
-		return
-	}
-	p1 := permutation(a, c)
-	c1 := combination(a, c)
 
-	p2 := permutation(b, d)
-	c2 := combination(b, d)
-
-	fmt.Println(p1, c1)
-	fmt.Println(p2, c2)
+	p1 := faktorial(a) / faktorial(a-c)
+	k1 := faktorial(a) / (faktorial(c) * faktorial(a-c))
+	p2 := faktorial(b) / faktorial(b-d)
+	k2 := faktorial(b) / (faktorial(d) * faktorial(b-d))
+	fmt.Println(p1, k1)
+	fmt.Println(p2, k2)
 }
+
 ```
 ### Output Unguided :
 
 ##### Output 
-![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%204/OUTPUT/soal%201.png)
-Kode Go tersebut digunakan untuk menghitung permutasi dan kombinasi dari dua pasang bilangan input. Program mendefinisikan fungsi faktorial(n int) untuk menghitung nilai faktorial (meskipun bagian perhitungannya tidak terlihat lengkap di potongan ini), lalu menggunakan fungsi permutation(n, r) dengan rumus ( n! / (n-r)! ) dan combination(n, r) dengan rumus ( n! / (r!(n-r)!) ). Pada fungsi main, program membaca empat input bilangan (a, b, c, d), kemudian melakukan validasi agar nilai a ≥ c dan b ≥ d; jika tidak, program menampilkan pesan error. Jika valid, program menghitung nilai permutasi dan kombinasi untuk pasangan `(a, c) dan (b, d), lalu menampilkan hasilnya ke terminal.
-
+![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%203/OUTPUT/soal%201%20modul%203.png)
+Program Go ini intinya adalah sebuah kalkulator yang bisa menghitung **permutasi (P)** dan **kombinasi (K)** dari dua pasang angka sekaligus. Cara kerjanya simpel — program minta kita masukkan 4 angka (a, b, c, d), lalu dia otomatis hitung berapa banyak cara kita bisa menyusun atau memilih sejumlah objek menggunakan rumus faktorial di balik layar. Misalnya waktu dimasukkan angka 5, 10, 3, 10 hasilnya permutasi dan kombinasi dari pasangan pertama adalah 60 dan 10, sedangkan percobaan kedua dengan angka 8, 0, 2, 0 menghasilkan 56 dan 1 — semua dihitung otomatis tanpa kita perlu repot hitung manual satu-satu.
 ## Unguided 
 
 ### 2. [Soal]
@@ -58,53 +43,28 @@ Kode Go tersebut digunakan untuk menghitung permutasi dan kombinasi dari dua pas
 
 ```go
 package main
-import (
-	"fmt"
-)
 
-func hitungSkor(waktu []int, soal *int, skor *int) {
-	*soal = 0
-	*skor = 0
-	for _, w := range waktu {
-		if w <= 301 {
-			*soal++
-			*skor += w
-		}
-	}
-}
+import "fmt"
+
+func f(x int) int { return x * x }
+func g(x int) int { return x - 2 }
+func h(x int) int { return x + 1 }
+
 func main() {
-	var nama string
-	var pemenang string
-	maxSoal := -1
-	minWaktu := 1<<31 - 1
+	var a, b, c int
+	fmt.Scan(&a, &b, &c)
 
-	for {
-		fmt.Scan(&nama)
-
-		if nama == "Selesai" {
-			break
-		}
-		waktu := make([]int, 8)
-		for i := 0; i < 8; i++ {
-			fmt.Scan(&waktu[i])
-		}
-
-		var soal, skor int
-		hitungSkor(waktu, &soal, &skor)
-		if soal > maxSoal || (soal == maxSoal && skor < minWaktu) {
-			maxSoal = soal
-			minWaktu = skor
-			pemenang = nama
-		}
-	}
-	fmt.Println(pemenang, maxSoal, minWaktu)
+	fmt.Println(f(g(h(a))))
+	fmt.Println(g(h(f(b))))
+	fmt.Println(h(f(g(c))))
 }
+
 ```
 ### Output Unguided :
 
 ##### Output 
-![Screenshot Output Unguided 1_1]https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%204/OUTPUT/soal%202.png
-Program Go tersebut digunakan untuk menentukan pemenang berdasarkan jumlah soal yang diselesaikan dan total waktu tercepat. Di dalam main, program membaca input berupa nama peserta secara berulang hingga pengguna mengetik Selesai. Untuk setiap peserta, program mengambil 8 data waktu pengerjaan soal yang disimpan dalam slice waktu, kemudian memanggil fungsi hitungSkor untuk menghitung jumlah soal yang berhasil diselesaikan (soal) dan total waktu (skor). Program menyimpan nilai maksimum soal (maxSoal) dan waktu minimum (minWaktu) sebagai acuan, lalu membandingkan setiap peserta: jika jumlah soal lebih banyak atau sama tetapi dengan waktu lebih cepat, maka peserta tersebut menjadi pemenang. Setelah semua input selesai, program menampilkan nama pemenang beserta jumlah soal dan total waktunya.
+![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%203/OUTPUT/soal%202%20modul%203.png)
+Program Go ini pada dasarnya adalah latihan fungsi bersarang (nested function), di mana ada tiga fungsi matematika sederhana — f(x) mengkuadratkan angka (x × x), g(x) mengurangi angka dengan 2 (x - 2), dan h(x) menambah angka dengan 1 (x + 1) — lalu ketiganya digabung-gabungkan secara berlapis. Jadi ketika kita masukkan 3 angka (a, b, c), program tidak hanya pakai satu fungsi, tapi memasukkan hasil satu fungsi ke fungsi lain secara berantai, misalnya f(g(h(a))) artinya angka a dulu ditambah 1, lalu dikurangi 2, lalu dikuadratkan. Hasilnya beda-beda tergantung urutan fungsinya, dan ini membuktikan bahwa urutan fungsi itu sangat berpengaruh terhadap hasil akhir — sama seperti di matematika, f(g(x)) belum tentu sama hasilnya dengan g(f(x)).
 
 
 ## Unguided 
@@ -117,35 +77,41 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-func cetakDeret(n int) {
-	for {
-		fmt.Print(n, " ")
-
-		if n == 1 {
-			break
-		}
-
-		if n%2 == 0 {
-			n = n / 2
-		} else {
-			n = 3*n + 1
-		}
-	}
+func jarak(a, b, c, d float64) float64 {
+	return math.Sqrt(math.Pow(a-c, 2) + math.Pow(b-d, 2))
+}
+func diDalam(cx, cy, r, x, y float64) bool {
+	return jarak(cx, cy, x, y) <= r
 }
 func main() {
-	var n int
-	fmt.Scan(&n)
-	cetakDeret(n)
+	var cx1, cy1, r1 float64
+	var cx2, cy2, r2 float64
+	var x, y float64
+	fmt.Scan(&cx1, &cy1, &r1)
+	fmt.Scan(&cx2, &cy2, &r2)
+	fmt.Scan(&x, &y)
+	dalam1 := diDalam(cx1, cy1, r1, x, y)
+	dalam2 := diDalam(cx2, cy2, r2, x, y)
+
+	if dalam1 && dalam2 {
+		fmt.Println("Titik di dalam lingkaran 1 dan 2")
+	} else if dalam1 {
+		fmt.Println("Titik di dalam lingkaran 1")
+	} else if dalam2 {
+		fmt.Println("Titik di dalam lingkaran 2")
+	} else {
+		fmt.Println("Titik di luar lingkaran 1 dan 2")
+	}
 }
 ```
 ### Output Unguided :
 
 ##### Output 
-![Screenshot Output Unguided 1_1]https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%204/OUTPUT/soal%203.png
-Program Go tersebut digunakan untuk mencetak deret bilangan berdasarkan aturan Collatz (3n + 1). Fungsi cetakDeret(n int) akan menampilkan nilai n secara berulang menggunakan loop tak hingga (for), lalu berhenti ketika nilai n mencapai 1. Di setiap iterasi, program mengecek apakah n genap atau ganjil: jika genap maka n dibagi 2 (n = n / 2), sedangkan jika ganjil maka dihitung dengan rumus n = 3*n + 1. Fungsi main digunakan untuk membaca input bilangan dari pengguna, kemudian memanggil fungsi cetakDeret untuk menampilkan seluruh urutan angka hingga berakhir di 1, seperti yang terlihat pada output deret yang terus berubah sesuai aturan tersebut.
-
+![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%203/OUTPUT/soal%203%20modul%203.png)
+Program Go ini ibarat seorang penjaga yang bertugas mengecek apakah sebuah titik berada di dalam satu atau dua lingkaran sekaligus. Caranya, kita cukup masukkan pusat dan jari-jari dari dua lingkaran, lalu masukkan koordinat titik yang ingin dicek — program akan otomatis menghitung jarak titik tersebut ke masing-masing pusat lingkaran menggunakan rumus jarak (Pythagoras), dan kalau jaraknya lebih kecil atau sama dengan jari-jarinya berarti titik itu ada di dalam lingkaran tersebut. Hasilnya pun langsung jelas — program akan bilang apakah titik itu ada "di dalam lingkaran 1 dan 2" (masuk keduanya), "di dalam lingkaran 1" saja, "di dalam lingkaran 2" saja, atau "di luar kedua lingkaran" — jadi sangat praktis untuk menentukan posisi suatu titik terhadap beberapa lingkaran tanpa perlu hitung manual.
 
 
 
