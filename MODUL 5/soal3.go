@@ -13,7 +13,6 @@ func faktor(n int, i int) {
 
 	faktor(n, i+1)
 }
-
 func main() {
 	var n int
 	fmt.Print("Masukkan bilangan: ")

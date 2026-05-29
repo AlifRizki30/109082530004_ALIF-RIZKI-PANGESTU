@@ -6,8 +6,6 @@ func printPattern(n int, current int) {
 	if current > n {
 		return
 	}
-
-	// cetak bintang
 	for i := 0; i < current; i++ {
 		fmt.Print("*")
 	}
