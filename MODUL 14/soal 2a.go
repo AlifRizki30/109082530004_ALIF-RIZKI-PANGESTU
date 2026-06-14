@@ -34,7 +34,6 @@ func main() {
 
 	insertionSort(data)
 
-	// Baris pertama: array terurut
 	for i := 0; i < len(data); i++ {
 		if i > 0 {
 			fmt.Print(" ")
@@ -43,7 +42,6 @@ func main() {
 	}
 	fmt.Println()
 
-	// Baris kedua: cek jarak
 	if len(data) <= 2 {
 		fmt.Println("Data berjarak tetap")
 		return
