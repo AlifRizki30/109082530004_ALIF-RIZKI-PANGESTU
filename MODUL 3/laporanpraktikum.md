@@ -35,7 +35,7 @@ func main() {
 
 ##### Output 
 ![Screenshot Output Unguided 1_1](https://github.com/AlifRizki30/109082530004_ALIF-RIZKI-PANGESTU/blob/main/MODUL%203/OUTPUT/soal%201%20modul%203.png)
-Program Go ini intinya adalah sebuah kalkulator yang bisa menghitung **permutasi (P)** dan **kombinasi (K)** dari dua pasang angka sekaligus. Cara kerjanya simpel — program minta kita masukkan 4 angka (a, b, c, d), lalu dia otomatis hitung berapa banyak cara kita bisa menyusun atau memilih sejumlah objek menggunakan rumus faktorial di balik layar. Misalnya waktu dimasukkan angka 5, 10, 3, 10 hasilnya permutasi dan kombinasi dari pasangan pertama adalah 60 dan 10, sedangkan percobaan kedua dengan angka 8, 0, 2, 0 menghasilkan 56 dan 1 — semua dihitung otomatis tanpa kita perlu repot hitung manual satu-satu.
+Program Go ini intinya adalah sebuah kalkulator yang bisa menghitung permutasi (P) dan kombinasi (K) dari dua pasang angka sekaligus. Cara kerjanya simpel — program minta kita masukkan 4 angka (a, b, c, d), lalu dia otomatis hitung berapa banyak cara kita bisa menyusun atau memilih sejumlah objek menggunakan rumus faktorial di balik layar. Misalnya waktu dimasukkan angka 5, 10, 3, 10 hasilnya permutasi dan kombinasi dari pasangan pertama adalah 60 dan 10, sedangkan percobaan kedua dengan angka 8, 0, 2, 0 menghasilkan 56 dan 1 — semua dihitung otomatis tanpa kita perlu repot hitung manual satu-satu.
 ## Unguided 
 
 ### 2. [Soal]
